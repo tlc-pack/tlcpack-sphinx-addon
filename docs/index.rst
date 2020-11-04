@@ -16,3 +16,12 @@ This package contains addon assets to sphinx themes.
    :hidden:
 
    api
+   reference
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: MISC
+   :hidden:
+
+   misc
