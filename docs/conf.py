@@ -151,6 +151,8 @@ html_context = {
     "footer_note": footer_note,
     "header_links": header_links,
     "header_dropdown": header_dropdown,
+    # "header_logo": "path/to/logo",
+    # "header_logo_link": "https://tlcpack.ai/",
 }
 
 
