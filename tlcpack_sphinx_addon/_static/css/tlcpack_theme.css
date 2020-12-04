@@ -655,6 +655,7 @@ footer .btn.float-right:after {
 }
 .wy-nav-side .wy-side-scroll {
   padding-top: 45px;
+  width: auto;
 }
 @media only screen and (max-width : 991px) {
   .wy-nav-side .wy-side-scroll {
