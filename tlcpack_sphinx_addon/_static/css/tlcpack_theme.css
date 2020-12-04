@@ -650,7 +650,7 @@ footer .btn.float-right:after {
 }
 @media (min-width: 1100px) {
   .wy-nav-side {
-    width: 400px;
+    width: 340px;
   }
 }
 .wy-nav-side .wy-side-scroll {
