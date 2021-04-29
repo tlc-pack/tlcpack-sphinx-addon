@@ -145,9 +145,15 @@
               {%- set nav_version = current_version %}
             {% endif %}
             {% if nav_version %}
-              <div class="version">
-                {{ nav_version }}
-              </div>
+              {%- if version_selecter is defined %}
+                <div class="version">
+                  <a href="{{ pathto(version_selecter) }}">{{ nav_version }} ▼ </a>
+                </div>
+              {%- else %}
+                <div class="version">
+                  {{ nav_version }}
+                </div>
+              {%- endif %}
             {% endif %}
           {% endif %}
 
