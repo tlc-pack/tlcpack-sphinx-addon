@@ -2,7 +2,7 @@
 """Setup TLCPack."""
 from setuptools import setup, find_packages
 
-__version__ = "0.1.5"
+__version__ = "0.1.6"
 
 
 setup(
