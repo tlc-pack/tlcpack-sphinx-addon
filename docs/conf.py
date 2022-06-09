@@ -28,7 +28,7 @@ sys.path.insert(0, os.path.join(curr_path, "../"))
 # General information about the project.
 project = "tlcpack-sphinx-addon"
 author = "TLCPack Contributors"
-copyright = "2020, %s" % author
+copyright = "2022, %s" % author
 github_doc_root = "https://github.com/tlc-pack/tlpack-sphinx-addon/tree/"
 
 # Version information.
@@ -124,7 +124,7 @@ templates_path = []
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = []
 
-footer_copyright = "© 2020 TLCPack | All right reserved"
+footer_copyright = "© 2022 TLCPack | All rights reserved"
 footer_note = " ".join(
     """
 TLCPack, tensor learning compiler binary package.""".split(

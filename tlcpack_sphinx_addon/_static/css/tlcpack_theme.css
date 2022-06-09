@@ -894,6 +894,7 @@ footer .btn.float-right:after {
     font-family: "PT Sans Caption", sans-serif;
     font-size: 15px;
     font-weight: 700;
+    cursor: pointer;
   }
   .wy-nav-top .togglemenu {
     width: 30px;
@@ -1043,4 +1044,58 @@ footer .btn.float-right:after {
 }
 .rst-content .container{
   padding:0;
+}
+
+/* .version-selector-content {
+  display: none;
+}
+
+.version-selector-show .versions-shown {
+  display: none;
+}
+
+.version-selector-show:focus {
+  color: red;
+}
+
+.version-selector-hide, .version-selector-show {
+  cursor: pointer;
+}
+
+.version-selector-show:focus ~ .version-selector-content {
+  display: block;
+}
+.version-selector-show:focus .versions-hidden {
+  display: none;
+}
+.version-selector-show:focus .versions-shown {
+  display: block;
+} */
+
+.version-details {
+  display: none;
+  margin-bottom: 1.5em;
+}
+
+.versions-shown {
+  display: none;
+}
+
+.chevron svg {
+  line-height: 0.5em;
+  margin-top: -10px;
+  height: 1em;
+  transform: translateY(17%);
+}
+
+.version-toggle-box:checked ~ .version-details {
+  display: block;
+}
+
+.version-toggle-box:checked ~ .version-toggle-label .versions-hidden {
+  display: none;
+}
+
+.version-toggle-box:checked ~ .version-toggle-label .versions-shown {
+  display: inline-block;
 }
