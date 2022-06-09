@@ -145,9 +145,23 @@
               {%- set nav_version = current_version %}
             {% endif %}
             {% if nav_version %}
-              {%- if version_selecter is defined %}
-                <div class="version">
-                  <a href="{{ version_selecter }}">{{ nav_version }} ▼ </a>
+              {%- if version_prefixes is defined %}
+              <input type="checkbox" class="version-toggle-box" hidden id="version-toggle">
+              <label for="version-toggle" class="version-toggle-label">
+                  <div tabindex="0" class="version version-selector version-selector-show">
+                    {{ nav_version }} <span class="chevron versions-hidden"><svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m8 4 8 8-8 8" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></span><span class="chevron versions-shown"><svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m4 8 8 8 8-8" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></span>
+                  </div>
+                </label>
+                <div class="version-details wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                  <p class="caption" role="heading"><span class="caption-text">Versions</span></p>
+                  <ol style="text-align: left">
+                    {% for version in version_prefixes %}
+                    {% set version_url = "/" if version == "main" else version %}
+                    {% set version_desc = nav_version + " (main)" if version == "main" else version.strip("/") %}
+                    
+                      <li><div class="version"><a style="font-size: 0.8em; padding: 4px" href="{{ version_url }}">{{ version_desc }}</a></div></li>
+                    {% endfor %}
+                  </ol>
                 </div>
               {%- else %}
                 <div class="version">
@@ -196,7 +210,7 @@
             </div>
             <div class="nav-content">
               <!-- {{ project }} -->
-              Table of content
+              Table of Contents
             </div>
         {% endblock %}
       </nav>
