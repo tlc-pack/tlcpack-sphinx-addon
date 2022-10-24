@@ -44,6 +44,12 @@
         {% endfor %}
       <li>{{ title }}</li>
     {% endblock %}
+    {% if suffix %}
+      {% set _edit_url = 'https://github.com/' + github_user + '/' + github_repo + '/' + theme_vcs_pageview_mode + '/' + github_version + pagename + suffix %}
+      {% if edit_link_hook_fn %}
+        {% set _edit_url = edit_link_hook_fn(_edit_url) %}
+      {% endif %}
+    {% endif %}
     {% block breadcrumbs_aside %}
       <li class="wy-breadcrumbs-aside">
         {% if hasdoc(pagename) %}
@@ -52,7 +58,7 @@
               <!-- User defined GitHub URL -->
               <a href="{{ meta['github_url'] }}" class="fa fa-github"> {{ _('Edit on GitHub') }}</a>
             {% else %}
-              <a href="https://{{ github_host|default("github.com") }}/{{ github_user }}/{{ github_repo }}/{{ theme_vcs_pageview_mode|default("blob") }}/{{ github_version }}{{ conf_py_path }}{{ pagename }}{{ suffix }}" class="fa fa-github"> {{ _('Edit on GitHub') }}</a>
+              <a href="{{ _edit_url }}" class="fa fa-github"> {{ _('Edit on GitHub') }}</a>
             {% endif %}
           {% elif display_bitbucket %}
             {% if check_meta and 'bitbucket_url' in meta %}
