@@ -18,6 +18,9 @@
 {%- set sphinx_writer = 'writer-html5' if html5_doctype else 'writer-html4' %}
 {% set theme_asset_url = theme_asset_url | default(pathto('_static/',1 )) %}
 
+{%- set (_ver_major, _ver_minor) = (sphinx_version.split('.') | list)[:2] | map('int') -%}
+{%- set sphinx_version_info = (_ver_major, _ver_minor, -1) -%}
+
 <!DOCTYPE html>
 <html class="{{ sphinx_writer }}" lang="{{ lang_attr }}" >
 <head>
@@ -30,7 +33,9 @@
 
   {# CSS #}
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css" />
+  {%- if sphinx_version_info < (4, 0) -%}
+    <link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css" />
+  {%- endif %}
   {%- for css in css_files %}
     {%- if css|attr("rel") %}
   <link rel="{{ css.rel }}" href="{{ pathto(css.filename, 1) }}" type="text/css"{% if css.title is not none %} title="{{ css.title }}"{% endif %} />
@@ -158,7 +163,7 @@
                     {% for version in version_prefixes %}
                     {% set version_url = "/" if version == "main" else version %}
                     {% set version_desc = nav_version + " (main)" if version == "main" else version.strip("/") %}
-                    
+
                       <li><div class="version"><a style="font-size: 0.8em; padding: 4px" href="{{ version_url }}">{{ version_desc }}</a></div></li>
                     {% endfor %}
                   </ol>
