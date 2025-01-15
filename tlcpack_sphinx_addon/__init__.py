@@ -1,7 +1,7 @@
 """TLCPack sphinx add on"""
 import os
 
-__version__ = "0.1.6"
+__version__ = "0.2.3"
 
 __BASEDIR__ = os.path.dirname(os.path.realpath(os.path.expanduser(__file__)))
 
